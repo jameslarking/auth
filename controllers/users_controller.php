@@ -119,20 +119,6 @@ class UsersController extends UsersAppController {
 		$this->set('user', $user);
 	}
 
-/**
- * Shows a users profile
- *
- * @param string $slug User Slug
- * @return void
- */
-	public function view($slug = null) {
-		try {
-			$this->set('user', $this->User->view($slug));
-		} catch (Exception $e) {
-			$this->Session->setFlash($e->getMessage());
-			$this->redirect('/');
-		}
-	}
 
 /**
  * Edit
@@ -259,6 +245,7 @@ class UsersController extends UsersAppController {
 		}
 
 		if (!empty($this->data)) {
+			debug($this->data);
 			$user = $this->User->register($this->data);
 			if ($user !== false) {
 				$this->set('user', $user);

@@ -24,19 +24,7 @@ class usersSchema extends CakeSchema {
 	function after($event = array()) {
 	}
 
-	var $details = array(
-		'id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary'),
-		'user_id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36),
-		'position' => array('type' => 'float', 'null' => false, 'default' => '1'),
-		'field' => array('type' => 'string', 'null' => false, 'default' => NULL, 'key' => 'index'),
-		'value' => array('type' => 'text', 'null' => true, 'default' => NULL),
-		'input' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 16),
-		'data_type' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 16),
-		'label' => array('type' => 'string', 'null' => false, 'length' => 128),
-		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
-		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'UNIQUE_PROFILE_PROPERTY' => array('column' => array('field', 'user_id'), 'unique' => 1))
-	);
+	
 	var $users = array(
 		'id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary'),
 		'username' => array('type' => 'string', 'null' => false, 'default' => NULL, 'key' => 'index'),
@@ -55,6 +43,13 @@ class usersSchema extends CakeSchema {
 		'role' => array('type' => 'string', 'null' => true, 'default' => NULL),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
+		'group_id'=>array('type' => 'integer', 'null' => true, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'BY_USERNAME' => array('column' => array('username', 'passwd'), 'unique' => 0), 'BY_EMAIL' => array('column' => array('email', 'passwd'), 'unique' => 0))
 	);
+	
+	var $groups = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'name' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 250),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+	);	
 }

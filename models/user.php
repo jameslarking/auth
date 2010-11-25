@@ -63,10 +63,7 @@ class User extends UsersAppModel {
  *
  * @var array
  */
-	public $hasMany = array(
-		'Detail' => array(
-			'className' => 'Users.Detail',
-			'foreign_key' => 'user_id'));
+	public $hasMany = array();
 
 /**
  * Validation parameters
@@ -85,7 +82,7 @@ class User extends UsersAppModel {
 	public function __construct($id = false, $table = null, $ds = null) {
 		parent::__construct($id, $table, $ds);
 		$this->validate = array(
-			'username' => array(
+			/*'username' => array(
 				'required' => array(
 					'rule' => array('notEmpty'),
 					'required' => true, 'allowEmpty' => false,
@@ -99,6 +96,7 @@ class User extends UsersAppModel {
 				'username_min' => array(
 					'rule' => array('minLength', '3'),
 					'message' => __d('users', 'The username must have at least 3 characters.', true))),
+					*/
 			'email' => array(
 				'isValid' => array(
 					'rule' => 'email',
