@@ -72,42 +72,6 @@ class UsersController extends UsersAppController {
 		}
 	}
 
-/**
- * List of all users
- *
- * @return void
- */
-	public function index() {
-		//$this->User->contain('Detail');
-		$searchTerm = '';
-		$this->Prg->commonProcess($this->modelClass, $this->modelClass, 'index', false);
-
-		if (!empty($this->params['named']['search'])) {
-			if (!empty($this->params['named']['search'])) {
-				$searchTerm = $this->params['named']['search'];
-			}
-			$this->data[$this->modelClass]['search'] = $searchTerm;
-		}
-
-		$this->paginate = array(
-			'search',
-			'limit' => 12,
-			'order' => $this->modelClass . '.username ASC',
-			'by' => $searchTerm,
-			'conditions' => array(
-				'OR' => array(
-					'AND' => array(
-							$this->modelClass . '.active' => 1, 
-							$this->modelClass . '.email_authenticated' => 1))));
-
-
-		$this->set('users', $this->paginate($this->modelClass));
-		$this->set('searchTerm', $searchTerm);
-
-		if (!isset($this->params['named']['sort'])) {
-			$this->params['named']['sort'] = 'username';
-		}
-	}
 
 /**
  * The homepage of a users giving him an overview about everything
