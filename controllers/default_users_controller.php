@@ -22,7 +22,7 @@ class DefaultUsersController extends UsersAppController {
  *
  * @var string
  */
-	public $name = 'Users';
+	public $name = 'DefaultUsers';
 
 /**
  * Helpers

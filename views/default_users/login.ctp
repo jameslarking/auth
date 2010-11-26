@@ -25,4 +25,4 @@
 	?>
 </fieldset>
 
-<?php echo $this->Html->link("Forgotten Password?",array("plugin"=>"users", "controller"=>"users", "action"=>"reset_password"));?>
+<?php echo $this->Html->link("Forgotten Password?",array("plugin"=>false, "controller"=>"users", "action"=>"reset_password"));?>
