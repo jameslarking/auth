@@ -8,7 +8,8 @@
  * @copyright Copyright 2010, Cake Development Corporation (http://cakedc.com)
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
-echo __d('users', 'A request to reset your password was sent. To change your password click the link below.');
-echo "\n";
-echo Router::url(array('admin' => false, 'plugin' => false, 'controller' => 'users', 'action' => 'reset_password', $token), true);
+?>
+<div class="users overview">
+	<h2><?php __d('users', 'Welcome'); ?> <?php echo $user[$model]['username']; ?></h2>
+	<h3><?php __d('users', 'Recent broadcasts'); ?></h3>
+</div>

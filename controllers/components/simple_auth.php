@@ -7,9 +7,9 @@ class SimpleAuthComponent extends Object{
 		* Auth Config
 		*/
         $controller->Auth->fields = array('username' => 'email','password' => 'passwd');
-        $controller->Auth->loginAction = array('plugin'=>"users", 'controller' => 'users', 'action' => 'login', "admin"=>false);
-        $controller->Auth->logoutRedirect = array('plugin'=>"users", 'controller' => 'users', 'action' => 'login', "admin"=>false);
-        $controller->Auth->loginRedirect = array('plugin'=>'users', 'controller' => 'users', 'action' => 'dashboard', "admin"=>false);        
+        $controller->Auth->loginAction = array('plugin'=>false, 'controller' => 'users', 'action' => 'login', "admin"=>false);
+        $controller->Auth->logoutRedirect = array('plugin'=>false, 'controller' => 'users', 'action' => 'login', "admin"=>false);
+        $controller->Auth->loginRedirect = array('plugin'=>false, 'controller' => 'users', 'action' => 'dashboard', "admin"=>false);        
 	}
 	function startup($controller){
 		/*
