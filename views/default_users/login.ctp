@@ -9,7 +9,6 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<h2><?php __d('users', 'Login') ?></h2>
 <fieldset>
 	<legend><?php __d('users', 'Login') ?></legend>
 	<?php
