@@ -1,3 +1,40 @@
+#Users plugin
+
+This is modified from the original cakeDC plugin for my own use.  I have simplified auth down as this tends to be all I need.
+
+	<?php
+	App::import('Controller', 'Auth.DefaultUsers');
+	class UsersController extends DefaultUsersController{
+		public $name="Users";	
+		public $simpleAuth=array(
+			"public"=>array(
+				"allow"=>array(
+					"login",
+					"logout",
+					"register"
+				)
+			),
+			"any"=>array(
+				"allow"=>array(
+					"dashboard",
+					"change_password"
+				)
+			)
+		);
+		public function render($action = null, $layout = null, $file = null) {
+		    if (!file_exists(VIEWS . 'users' . DS . $this->action . '.ctp')) {
+		        $file = App::pluginPath('auth') . 'views' . DS . 'default_users' . DS . $this->action . '.ctp';
+		    }
+		    return parent::render($action, $layout, $file);
+		}
+	
+	}
+
+
+
+
+
+
 # Users Plugin for CakePHP #
 
 The users plugin is for allowing users to register and login manage their profile. It also allows admins to manage the users.
