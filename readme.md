@@ -2,6 +2,8 @@
 
 This is modified from the original cakeDC plugin for my own use.  I have simplified auth down as this tends to be all I need.
 
+##Add a controller to app
+
 	<?php
 	App::import('Controller', 'Auth.DefaultUsers');
 	class UsersController extends DefaultUsersController{
@@ -30,6 +32,34 @@ This is modified from the original cakeDC plugin for my own use.  I have simplif
 	
 	}
 
+
+##Add a model
+
+	<?php
+	App::import('Model', 'Auth.DefaultUser');
+	class User extends DefaultUser {
+	    public $useTable = 'users';
+	    public $name = 'User';
+	//	public $useDbConfig="mysql";
+		var $mongoSchema = array(
+			'username' => array('type'=>'string'),
+			'slug'=>array('type'=>'string'),
+			'passwd'=>array('type'=>'string'),
+			'password_token'=>array('type'=>'string'),
+			'email'=>array('type'=>'string'),
+			'email_authenticated'=>array('type'=>'string'),
+			'email_token'=>array('type'=>'string'),
+			'email_token_expires'=>array('type'=>'string'),
+			'tos'=>array('type'=>'int'),
+			'active'=>array('type'=>'int'),
+			'last_login'=>array('type'=>'date'),
+			'last_activity'=>array('type'=>'date'),
+			'is_admin'=>array('type'=>'string'),
+			'role'=>array('type'=>'string'),
+			'created'=>array('type'=>'string'),
+			'modified'=>array('type'=>'string'),
+		);	    
+	}
 
 
 
