@@ -12,7 +12,7 @@ class SimpleAuthComponent extends Object{
         $controller->Auth->logoutRedirect = array('plugin'=>false, 'controller' => 'users', 'action' => 'login', "admin"=>false);
         $controller->Auth->loginRedirect = array('plugin'=>false, 'controller' => 'users', 'action' => 'dashboard', "admin"=>false);        
         
-        if($this->isAllowed(&$controller)){
+        if($this->isAllowed($controller)){
         	$controller->Auth->allow($controller->action);
         }else{
 	        $controller->Auth->deny($controller->action);
